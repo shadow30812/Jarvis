@@ -1,0 +1,34 @@
+annotated-types @ file:///croot/annotated-types_1709542908624/work
+anyio @ file:///croot/anyio_1745334642479/work
+brotlicffi @ file:///croot/brotlicffi_1736182461069/work
+certifi @ file:///croot/certifi_1750863846190/work/certifi
+cffi @ file:///croot/cffi_1736182485317/work
+charset-normalizer @ file:///croot/charset-normalizer_1721748349566/work
+click==8.1.8
+distro @ file:///croot/distro_1714488253808/work
+dotenv==0.9.9
+exceptiongroup @ file:///croot/exceptiongroup_1706031385326/work
+gTTS==2.5.4
+h11 @ file:///croot/h11_1748442006460/work
+httpcore @ file:///croot/httpcore_1748526048470/work
+httpx @ file:///croot/httpx_1746747840559/work
+idna @ file:///croot/idna_1714398848350/work
+jiter @ file:///croot/jiter_1729808929109/work
+openai @ file:///croot/openai_1746690299473/work
+pvcobra==2.0.5
+pvporcupine==3.0.5
+pvrecorder==1.2.7
+PyAudio==0.2.11
+pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
+pydantic @ file:///croot/pydantic_1750768261732/work
+pydantic_core @ file:///croot/pydantic-core_1750754736071/work
+pygame==2.6.1
+PySocks @ file:///tmp/build/80754af9/pysocks_1605305812635/work
+python-dotenv==1.1.1
+requests @ file:///croot/requests_1750426329888/work
+sniffio @ file:///croot/sniffio_1705431295498/work
+SpeechRecognition==3.14.3
+tqdm @ file:///croot/tqdm_1738943501192/work
+typing-inspection @ file:///croot/typing-inspection_1746023470701/work
+typing_extensions @ file:///croot/typing_extensions_1734714854207/work
+urllib3 @ file:///croot/urllib3_1750775463400/work

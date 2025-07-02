@@ -1,0 +1,13 @@
+
+# Ignore all environment variables
+*.env
+
+#Ignore log files
+*.log
+
+#Ignore personal library
+musicLibrary.py
+
+#Ignore experiments
+client.py
+expt.py
