@@ -29,14 +29,15 @@ else:
     print("Something went terribly wrong. Please try later or notify the author.")
     sys.exit(1)
 
-# Initialize Cobra and Porcupine
-cobra_handle = cobra.create(access_key=pico_key)
-porcupine_handle = porcupine.create(
-    access_key=pico_key,
-    keywords=["jarvis"],
-    sensitivities=[0.4],  # Default is 0.5, lower is more sensitive
-)
-recorder = PvRecorder(device_index=-1, frame_length=porcupine_handle.frame_length)
+# Initialize Cobra and Porcupine if access key is found
+if pico_key:
+    cobra_handle = cobra.create(access_key=pico_key)
+    porcupine_handle = porcupine.create(
+        access_key=pico_key,
+        keywords=["jarvis"],
+        sensitivities=[0.4],  # Default is 0.5, lower is more sensitive
+    )
+    recorder = PvRecorder(device_index=-1, frame_length=porcupine_handle.frame_length)
 recognizer = sr.Recognizer()
 
 logging.basicConfig(
@@ -44,7 +45,6 @@ logging.basicConfig(
     level=logging.INFO,  # Log INFO and above (WARNING, ERROR, CRITICAL)
     format="%(asctime)s - %(levelname)s - %(message)s",
 )
-
 
 def speak(text):
     logging.info(f"Assistant response: {text}")
@@ -77,6 +77,8 @@ def speak(text):
 
 
 def aiProcess(command):
+    if not pplx_key:
+        return
     client = OpenAI(api_key=pplx_key, base_url="https://api.perplexity.ai")
     response = client.chat.completions.create(
         model="sonar-pro",
@@ -90,9 +92,13 @@ def aiProcess(command):
             {"role": "user", "content": command},
         ],
     )
-    response_text = response.choices[0].message.content.strip()
-    logging.info(f"AI response: {response_text}")
-    return response_text
+    reply = response.choices[0].message.content
+    if reply:
+        response_text = reply.strip()
+        logging.info(f"AI response: {response_text}")
+        return response_text
+    else:
+        return ""
 
 
 def processCommand(c):
@@ -138,6 +144,8 @@ def processCommand(c):
 
     # Listen to the news
     elif "news" in c.lower():
+        if not news_key:
+            return
         r = requests.get(
             f"https://newsapi.org/v2/top-headlines?country=in&apiKey={news_key}"
         )
