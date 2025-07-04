@@ -1,5 +1,5 @@
 # Uses python=3.9.23
-# Change length of user response in line 86
+# Change length of user response in line 89
 
 import logging
 import os
@@ -29,7 +29,7 @@ else:
     print("Something went terribly wrong. Please try later or notify the author.")
     sys.exit(1)
 
-# Initialize Cobra and Porcupine if access key is found
+# Initialize Cobra and Porcupine if access key is found; Initialise voice recognizer
 if pico_key:
     cobra_handle = cobra.create(access_key=pico_key)
     porcupine_handle = porcupine.create(
@@ -45,6 +45,7 @@ logging.basicConfig(
     level=logging.INFO,  # Log INFO and above (WARNING, ERROR, CRITICAL)
     format="%(asctime)s - %(levelname)s - %(message)s",
 )
+
 
 def speak(text):
     logging.info(f"Assistant response: {text}")
@@ -68,7 +69,7 @@ def speak(text):
         # Delete temporary file after program is over
         pygame.mixer.music.unload()
         os.remove("temp.mp3")
-        
+
     except:
         print(
             "Sorry sir, there was an error in the text-to-speech engine. Your response is being printed from the next line."
