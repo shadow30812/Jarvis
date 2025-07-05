@@ -1,13 +1,15 @@
-
 # Ignore all environment variables
 *.env
 
-#Ignore log files
+# Ignore log files
 *.log
 
-#Ignore personal library
+# Ignore personal library
 musicLibrary.py
 
-#Ignore experiments
+# Ignore experiments
 client.py
 expt.py
+
+# Ignore dunder files
+__*__
