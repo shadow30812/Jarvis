@@ -70,7 +70,7 @@ def speak(text):
         pygame.mixer.music.unload()
         os.remove("temp.mp3")
 
-    except:
+    except Exception:
         print(
             "Sorry sir, there was an error in the text-to-speech engine. Your response is being printed from the next line."
         )
@@ -176,7 +176,7 @@ def processCommand(c):
         try:
             output = aiProcess(c)
             speak(output)
-        except:
+        except Exception:
             speak(
                 "I'm sorry sir, the servers seem to be busy at the moment. Please try again after sometime."
             )
